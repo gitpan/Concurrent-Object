@@ -6,7 +6,7 @@
 ## is free software; you can redistribute it and/or modify it under the
 ## same terms as Perl itself.
 ##
-## $Id: Object.pm,v 1.6 2001/06/11 20:07:12 vipul Exp $
+## $Id: Object.pm,v 1.7 2001/06/20 20:20:41 vipul Exp $
 
 package Concurrent::Object;
 
@@ -18,7 +18,7 @@ use Concurrent::Debug qw(debug);
 use Concurrent::Object::Data::DefferedRV;
 *import = \&Exporter::import;
 use vars qw($VERSION $AUTOLOAD @EXPORT);
-$VERSION = do { my @r = (q$Revision: 1.6 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r }; 
+$VERSION = do { my @r = (q$Revision: 1.7 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r }; 
 @EXPORT = qw( Concurrent );
 
 
@@ -165,7 +165,7 @@ Concurrent::Object - Concurrent Objects in Perl.
 
 =head1 VERSION
 
-    $Revision: 1.6 $
+    $Revision: 1.7 $
 
 =head1 SYNOPSIS
 
@@ -196,6 +196,5 @@ This is Alpha software.
 Vipul Ved Prakash, E<lt>mail@vipul.netE<gt>
 
 =cut
-
 
 

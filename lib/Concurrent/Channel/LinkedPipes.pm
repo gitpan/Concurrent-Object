@@ -6,16 +6,16 @@
 ## This code is free software; you can redistribute it and/or modify
 ## it under the same terms as Perl itself.
 ##
-## $Id: LinkedPipes.pm,v 1.2 2001/06/10 15:04:16 vipul Exp $
+## $Id: LinkedPipes.pm,v 1.3 2001/06/20 20:20:42 vipul Exp $
 
 package Concurrent::Channel::LinkedPipes;
 use Concurrent::Data::Serializer;
 use IO::Handle;
-use Data::Dumper;
+use IO::Pipe;
 use Concurrent::Debug qw(debug);
 use vars qw($VERSION);
 
-$VERSION = do { my @r = (q$Revision: 1.2 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r }; 
+$VERSION = do { my @r = (q$Revision: 1.3 $ =~ /\d+/g); sprintf "%d."."%02d" x $#r, @r }; 
 
 
 sub new { 
@@ -23,10 +23,17 @@ sub new {
     my ($class, %params) = @_;
     my %self = (%params);
 
+    my $R = new IO::Handle; 
+    my $W = new IO::Handle; 
+    IO::Pipe->new( $R, $W );
+
+    my $R1 = new IO::Handle; 
+    my $W1 = new IO::Handle; 
+    IO::Pipe->new( $R1, $W1 );
+
     $self{Payload} ||= "Data";
     $self{serializer} = new Concurrent::Data::Serializer Method => 'Storable' if $self{Payload} eq 'Perl';
-    pipe (R,W); pipe (R1, W1);
-    @self{qw(pid R W R1 W1)} = ($$, \*R, \*W, \*R1, \*W1);
+    @self{qw(pid R W R1 W1)} = ($$, $R, $W, $R1, $W1);
 
     return bless \%self, $class;
 

@@ -6,7 +6,7 @@
 ## This code is free software; you can redistribute it and/or modify
 ## it under the same terms as Perl itself.
 ##
-## $Id: Makefile.PL,v 1.4 2001/06/11 20:06:56 vipul Exp $ 
+## $Id: Makefile.PL,v 1.5 2001/06/20 20:20:39 vipul Exp $ 
 
 use ExtUtils::MakeMaker;
 
@@ -15,9 +15,9 @@ WriteMakefile(
     'AUTHOR'       => 'Vipul Ved Prakash <mail@vipul.net>',
     'VERSION_FROM' => 'lib/Concurrent/Object.pm',
     'PREREQ_PM'    => { 
-                        Data::Dumper => 0,
-                        Storable => 0, 
-                        MIME::Base64 => 0,
+                        Data::Dumper  => 0,
+                        Storable      => 0, 
+                        MIME::Base64  => 0,
                         Class::Loader => '2.00',
                        },
 );
