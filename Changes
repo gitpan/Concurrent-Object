@@ -1,11 +1,14 @@
 
 
                         CHANGELOG for Concurrent::Object
-          $Id: Changes,v 1.1.1.1 2001/06/10 14:39:39 vipul Exp $
+          $Id: Changes,v 1.2 2001/06/11 20:06:55 vipul Exp $
 
 --------------------------------------------------------------------------
 
-1.1                                                         Date
+1.06                                                        June 10, 2001
 
-    * First release.
+    * Tests that use Set::Scalar and URI::URL are now optional.
 
+1.05                                                        June 10, 2001
+    
+    * First public release.

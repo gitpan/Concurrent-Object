@@ -6,13 +6,12 @@
 ## This code is free software; you can redistribute it and/or modify
 ## it under the same terms as Perl itself.
 ##
-## $Id: Serializer.pm,v 1.2 2001/06/10 15:04:17 vipul Exp $
+## $Id: Serializer.pm,v 1.3 2001/06/11 20:06:57 vipul Exp $
 
 package Concurrent::Data::Serializer; 
 use Storable qw(freeze thaw);
 use Data::Dumper;
 use MIME::Base64;
-
 
 sub new { 
     my ($class, %params) = @_;

@@ -6,14 +6,19 @@
 ## This code is free software; you can redistribute it and/or modify
 ## it under the same terms as Perl itself.
 ##
-## $Id: 04-ProxyURI.t,v 1.2 2001/06/10 15:04:21 vipul Exp $
+## $Id: 04-ProxyURI.t,v 1.3 2001/06/11 20:07:02 vipul Exp $
 
 use lib '../lib';
 use Test;
-BEGIN { plan tests => 11 };
+BEGIN { plan tests => 11 }
 use Concurrent::Object::Proxy;
 use URI::URL;
 use Data::Dumper;
+
+unless ((eval "require URI::URL")) { 
+    for (1..11) { print "ok $_ # skip URI::URL not installed.\n" }
+    exit 0;
+}
 
 my $URL = "http://www.vipul.net/perl/software/concurrency.cgi?abc=xyz";
 

@@ -6,7 +6,7 @@
 ## This code is free software; you can redistribute it and/or modify
 ## it under the same terms as Perl itself.
 ##
-## $Id: 06-CO_RV_URI.t,v 1.1.1.1 2001/06/10 14:39:39 vipul Exp $
+## $Id: 06-CO_RV_URI.t,v 1.2 2001/06/11 20:07:02 vipul Exp $
 
 use lib '../lib';
 use Test;
@@ -14,6 +14,11 @@ BEGIN { plan tests => 11 };
 use Concurrent::Object;
 use URI::URL;
 use Concurrent::Debug qw(debuglevel);
+
+unless ((eval "require URI::URL")) { 
+    for (1..11) { print "ok $_ # skip URI::URL not installed.\n" }
+    exit 0;
+}
 
 my $URL = "http://www.vipul.net/perl/software/concurrency.cgi?abc=xyz";
 
